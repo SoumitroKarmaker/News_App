@@ -17,9 +17,9 @@ class _SignUPState extends State<SignUP> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(30.0),
-          child: SingleChildScrollView(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(30.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -166,10 +166,12 @@ class _SignUPState extends State<SignUP> {
                       width: 50,
                       color: Colors.blue,
                     ),
-                    SizedBox(height: 20,),
-                    Text('By signing up to News24 you are accecpting our  ')
-                  ],
+                    SizedBox(height: 20,),]
                 ),
+                 SizedBox(height: 20,),
+                 Text('By signing up to News24 you are accecpting our ',style: TextStyle(color: Colors.black, fontSize: 12)),
+                Text('Trems & Conditions',style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black, fontSize: 14)),
+
               ],
             ),
           ),
