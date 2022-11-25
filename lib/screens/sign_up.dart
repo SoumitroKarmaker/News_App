@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
+import 'package:news_app/screens/sign_in.dart';
 
 import '../const_data/colors.dart';
 
@@ -118,7 +119,7 @@ class _SignUPState extends State<SignUP> {
                 ),
                 Container(
                   height: 40,
-                  width: MediaQuery.of(context).size.width/2,
+                  width: MediaQuery.of(context).size.width / 2,
                   decoration: BoxDecoration(
                     color: Colors.blue,
                     borderRadius: BorderRadius.only(
@@ -134,44 +135,67 @@ class _SignUPState extends State<SignUP> {
                     style: TextStyle(color: Colors.white, fontSize: 18),
                   )),
                 ).onTap(() {}),
-                SizedBox(height: 30,),
-                Divider(thickness: 1,),
-                Text('or Sign In with'),
-                SizedBox(height: 10,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      height: 50,
-                      width: 50,
-                      color: Colors.red,
-                    ),
-                    Container(
-                      height: 50,
-                      width: 50,
-                      color: Colors.blue,
-                    ),
-                    Container(
-                      height: 50,
-                      width: 50,
-                      color: Colors.yellowAccent,
-                    ),
-                    Container(
-                      height: 50,
-                      width: 50,
-                      color: Colors.red,
-                    ),
-                    Container(
-                      height: 50,
-                      width: 50,
-                      color: Colors.blue,
-                    ),
-                    SizedBox(height: 20,),]
+                SizedBox(
+                  height: 30,
                 ),
-                 SizedBox(height: 20,),
-                 Text('By signing up to News24 you are accecpting our ',style: TextStyle(color: Colors.black, fontSize: 12)),
-                Text('Trems & Conditions',style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black, fontSize: 14)),
-
+                Divider(
+                  thickness: 1,
+                ),
+                Text('or Sign In with'),
+                SizedBox(
+                  height: 10,
+                ),
+                Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                          height: 50,
+                          width: 50,
+                          child: Image.asset(
+                            'assects/logo/google.png',
+                          )).onTap(() => SignIn().launch(context)),
+                      Container(
+                        height: 50,
+                        width: 50,
+                        child: Image.asset(
+                          'assects/logo/facebook.png',
+                        ),
+                      ),
+                      Container(
+                        height: 50,
+                        width: 50,
+                        child: Image.asset(
+                          'assects/logo/gmail.png',
+                        ),
+                      ),
+                      Container(
+                        height: 50,
+                        width: 50,
+                        child: Image.asset(
+                          'assects/logo/twitter.png',
+                        ),
+                      ),
+                      Container(
+                        height: 50,
+                        width: 50,
+                        child: Image.asset(
+                          'assects/logo/apple.png',
+                        ),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                    ]),
+                SizedBox(
+                  height: 20,
+                ),
+                Text('By signing up to News24 you are accecpting our ',
+                    style: TextStyle(color: Colors.black, fontSize: 12)),
+                Text('Trems & Conditions',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                        fontSize: 14)),
               ],
             ),
           ),
