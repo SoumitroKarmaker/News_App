@@ -151,6 +151,8 @@ class _HomeState extends State<Home> {
                 height: 10,
               ),
               News_tab(),
+              SizedBox(height: 15,),
+              News_tab(),
               SizedBox(
                 height: 10,
               ),

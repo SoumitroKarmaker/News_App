@@ -11,7 +11,14 @@ class _AddPostState extends State<AddPost> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Text('Add Post',style: TextStyle(fontSize: 50),),),
+      appBar: AppBar(title: Text('a'),
+          elevation: 0.0),
+      
+      body: Column(
+        children:  [
+       Container(height: MediaQuery.of(context),)
+        ],
+      ),
     );
   }
 }
