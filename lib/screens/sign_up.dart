@@ -13,6 +13,11 @@ class SignUP extends StatefulWidget {
 
 class _SignUPState extends State<SignUP> {
   int _value = 1;
+  TextEditingController userNameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController phoneNumberController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController confirmPasswordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -52,6 +57,7 @@ class _SignUPState extends State<SignUP> {
                   height: 20,
                 ),
                 AppTextField(
+                  controller: userNameController,
                   textFieldType: TextFieldType.NAME,
                   decoration: InputDecoration(label: Text('Username')),
                 ),
@@ -59,6 +65,7 @@ class _SignUPState extends State<SignUP> {
                   height: 10,
                 ),
                 AppTextField(
+                  controller: emailController,
                   textFieldType: TextFieldType.EMAIL,
                   decoration: InputDecoration(label: Text('E-mail')),
                 ),
@@ -66,6 +73,7 @@ class _SignUPState extends State<SignUP> {
                   height: 10,
                 ),
                 AppTextField(
+                  controller: phoneNumberController,
                   textFieldType: TextFieldType.NUMBER,
                   decoration: InputDecoration(label: Text('Phone Number')),
                 ),
@@ -73,8 +81,17 @@ class _SignUPState extends State<SignUP> {
                   height: 10,
                 ),
                 AppTextField(
+                  controller: passwordController,
                   textFieldType: TextFieldType.PASSWORD,
                   decoration: InputDecoration(label: Text('Password')),
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                AppTextField(
+                  controller: confirmPasswordController,
+                  textFieldType: TextFieldType.PASSWORD,
+                  decoration: InputDecoration(label: Text('Confirm Password')),
                 ),
                 SizedBox(
                   height: 30,
