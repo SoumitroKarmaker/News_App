@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:nb_utils/nb_utils.dart';
+import 'package:news_app/reposetory/auth_repo.dart';
 import 'package:news_app/screens/sign_in.dart';
 
 import '../const_data/colors.dart';
@@ -13,11 +15,14 @@ class SignUP extends StatefulWidget {
 
 class _SignUPState extends State<SignUP> {
   int _value = 1;
-  TextEditingController userNameController = TextEditingController();
+  TextEditingController fristNameController = TextEditingController();
+  TextEditingController lastNameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController phoneNumberController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController confirmPasswordController = TextEditingController();
+
+  final AuthRepo _authRepo = AuthRepo();
 
   @override
   Widget build(BuildContext context) {
@@ -57,9 +62,17 @@ class _SignUPState extends State<SignUP> {
                   height: 20,
                 ),
                 AppTextField(
-                  controller: userNameController,
+                  controller: fristNameController,
                   textFieldType: TextFieldType.NAME,
-                  decoration: InputDecoration(label: Text('Username')),
+                  decoration: InputDecoration(label: Text('First Name')),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                AppTextField(
+                  controller: lastNameController,
+                  textFieldType: TextFieldType.NAME,
+                  decoration: InputDecoration(label: Text('Last Name')),
                 ),
                 SizedBox(
                   height: 10,
@@ -151,7 +164,40 @@ class _SignUPState extends State<SignUP> {
                     'Sign Up',
                     style: TextStyle(color: Colors.white, fontSize: 18),
                   )),
-                ).onTap(() {}),
+                ).onTap(() async {
+                  if (fristNameController.text.isEmpty) {
+                    toast('please enter your frist name');
+                  } else if (lastNameController.text.isEmpty) {
+                    toast('please enter your last name');
+                  } else if (emailController.text.isEmpty) {
+                    toast('please enter your e-mail address');
+                  } else if (phoneNumberController.text.isEmpty) {
+                    toast('please enter your phone number');
+                  } else if (passwordController.text.isEmpty) {
+                    toast('please enter your password');
+                  } else if (passwordController.text.length < 6) {
+                    toast('password is too sort');
+                  } else if (confirmPasswordController.text.isEmpty) {
+                    toast('please enter your confirm password');
+                  } else {
+                    try {
+                      bool status = await _authRepo.signUpwithEmail(
+                          fristNameController.text,
+                          lastNameController.text,
+                          emailController.text,
+                          phoneNumberController.text,
+                          passwordController.text,
+                          confirmPasswordController.text);
+                      if(status){
+                        EasyLoading.showSuccess('Sign up successful');
+                      }else{
+                        EasyLoading.showError('somthing went wrong please try again');
+                      }
+                    } catch (e) {
+                      EasyLoading.showError(e.toString());
+                    }
+                  }
+                }),
                 SizedBox(
                   height: 30,
                 ),
