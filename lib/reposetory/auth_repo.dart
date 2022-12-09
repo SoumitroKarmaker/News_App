@@ -1,29 +1,28 @@
 import 'package:http/http.dart' as http;
 import 'package:news_app/const_data/server_config.dart';
 
-class AuthRepo {
-  Future<bool> signUpwithEmail(
+class AuthRep {
+  Future<bool> signUpWithEmail(
       String fristName,
       String lastName,
       String emailAddress,
       String phoneNumber,
-      String password,
-      String confirmPassword) async {
+      String passWord,
+      String confirmPassWord) async {
     String url = Config.sreverUrl + Config.signUpUrl;
-    var response = await http.post(Uri.parse(url), body: <String, String>{
+    var response =await http.post(Uri.parse(url), body: <String, String>{
       'first_name': fristName,
       'last_name': lastName,
       'email': emailAddress,
       'phone': phoneNumber,
-      'password': password,
-      'password_confirmation': confirmPassword,
+      'password': passWord,
+      'password_confirmation': confirmPassWord,
     });
-    if (response.statusCode == 200) {
+    if (response.statusCode == 200){
       return true;
-    } else {
+    }else{
       return false;
     }
 
-    return false;
   }
 }
