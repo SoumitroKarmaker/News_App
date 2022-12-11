@@ -1,7 +1,7 @@
 import 'package:http/http.dart' as http;
 import 'package:news_app/const_data/server_config.dart';
 
-class AuthRep {
+class AuthRepo {
   Future<bool> signUpWithEmail(
       String fristName,
       String lastName,
@@ -18,7 +18,8 @@ class AuthRep {
       'password': passWord,
       'password_confirmation': confirmPassWord,
     });
-    if (response.statusCode == 200){
+    print(response.body);
+    if (response.statusCode == 201){
       return true;
     }else{
       return false;

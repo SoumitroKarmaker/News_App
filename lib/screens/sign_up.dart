@@ -181,7 +181,7 @@ class _SignUPState extends State<SignUP> {
                     toast('please enter your confirm password');
                   } else {
                     try {
-                      bool status = await _authRepo.signUpwithEmail(
+                      bool status = await _authRepo.signUpWithEmail(
                           fristNameController.text,
                           lastNameController.text,
                           emailController.text,
